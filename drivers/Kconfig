@@ -69,6 +69,21 @@ config DRVR_READAHEAD
 		Enable generic read-ahead buffering support that can be used by a
 		variety of drivers.
 
+menu "I2C Multiplexer Support"
+config I2CMULTIPLEXER_TCA9548A
+	bool "TCA9548A TI multiplexer"
+	default n
+	depends on I2C
+	select BOARD_HAVE_I2CMUX
+	---help---
+		Enable support for the TI TCA9548A i2c multiplexer
+
+# put more i2c mux devices here
+
+endmenu # I2C Multiplexer Support
+
+endif
+
 if DRVR_WRITEBUFFER || DRVR_READAHEAD
 
 config DRVR_READBYTES
